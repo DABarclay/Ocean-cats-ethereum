@@ -2,6 +2,7 @@
   "name": "oceancats",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://DABarclay.github.io/Ocean-cats-ethereum",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
