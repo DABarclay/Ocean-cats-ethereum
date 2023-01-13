@@ -1,10 +1,32 @@
 .container {
-  margin-top: 96px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   width: 100vw;
+  background-color: black;
+  height: 100vh;
+overflow-x: hidden;}
+
+.title{
+  margin-top: 30px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.oceanlogo{
+  margin-left: 20px;
+  width: 55px;
+  height: 55px;
+}
+
+.ocean {
+  color: white;
+}
+
+.cats {
+  color: orange;
 }
 
 .previewImage {
@@ -22,34 +44,42 @@
   justify-content: center;
   width: 100%;
   padding: 0 24px;
-  min-height: 720px;
-  max-width: 95vw;
+  max-height: 480px;
+  max-width: 1222px;
   gap: 2%;
-  border: 1px solid var(--border-color);
+  border: 5px solid orange;
   border-radius: 16px;
+  margin: 20px;
 }
 
 .infoSide {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 45%;
   height: 100%;
 }
 
 .description {
-  opacity: 0.7;
   font-size: 1rem;
+}
+
+.leftside {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin-bottom: 20px;
 }
 
 .imageSide {
   width: 25%;
   height: 100%;
+  margin-top: 30px;
 }
 
 .image {
-  width: 85%;
-  border-radius: 16px;
+  width: 140%;
+  border-radius: 30px;
+  border: 10px solid #fff;
 }
 
 .buttons {
@@ -101,17 +131,19 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .mintAreaLeft {
   margin-left: 5%;
   opacity: 0.75;
+  margin-right: 5%;
 }
 
 .mintAreaRight {
   margin-right: 5%;
   opacity: 0.75;
+  margin-left: 5%;
 }
 
 .spacerTop {
@@ -175,6 +207,13 @@
   .mintInfoContainer {
     flex-direction: column;
     padding-bottom: 5%;
+    max-height: fit-content;
+    width: auto;
+  }
+
+  .container {
+    height: 100%;
+    width: 100%;
   }
 
   .infoSide {
@@ -182,6 +221,14 @@
   }
 
   .imageSide {
+    width: 80%;
+  }
+
+  .image {
     width: 100%;
+  }
+
+  .leftside {
+    width: 80%;
   }
 }

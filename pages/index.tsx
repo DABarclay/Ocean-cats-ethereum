@@ -15,9 +15,11 @@ import type { NextPage } from "next";
 import { useMemo, useState } from "react";
 import styles from "../styles/Theme.module.css";
 import { parseIneligibility } from "../utils/parseIneligibility";
+import connectpageart from "../assests/connectpageart.png";
+import oceanlogo from "../assests/oceancatslogo.png";
 
 // Put Your NFT Drop Contract address from the dashboard here
-const myNftDropContractAddress = "0x90E2dD8C48cA35534Dd70e3eC19B362cdf71981E";
+const myNftDropContractAddress = "0x8Ddf0ABb207B533EbD1BcC7b0eDa589184f881a7";
 
 const Home: NextPage = () => {
   const { contract: nftDrop } = useContract(myNftDropContractAddress);
@@ -211,48 +213,24 @@ const Home: NextPage = () => {
 
   return (
     <div className={styles.container}>
+      <div className={styles.title}>
+        <h1 className={styles.ocean}>OCEAN</h1>
+        <h1 className={styles.cats}>CATS</h1>
+        <img className={styles.oceanlogo} src="./oceancatslogo.png" />
+      </div>
       <div className={styles.mintInfoContainer}>
         {isLoading ? (
           <p>Loading...</p>
         ) : (
           <>
+          <div className={styles.leftside}>
             <div className={styles.infoSide}>
-              {/* Title of your NFT Collection */}
-              <h1>{contractMetadata?.name}</h1>
-              {/* Description of your NFT Collection */}
+              <h1>MINT AN OTTER</h1>
               <p className={styles.description}>
                 {contractMetadata?.description}
               </p>
             </div>
-
-            <div className={styles.imageSide}>
-              {/* Image Preview of NFTs */}
-              <img
-                className={styles.image}
-                src={contractMetadata?.image}
-                alt={`${contractMetadata?.name} preview image`}
-              />
-
-              {/* Amount claimed so far */}
-              <div className={styles.mintCompletionArea}>
-                <div className={styles.mintAreaLeft}>
-                  <p>Total Minted</p>
-                </div>
-                <div className={styles.mintAreaRight}>
-                  {claimedSupply && unclaimedSupply ? (
-                    <p>
-                      <b>{numberClaimed}</b>
-                      {" / "}
-                      {numberTotal}
-                    </p>
-                  ) : (
-                    // Show loading state if we're still loading the supply
-                    <p>Loading...</p>
-                  )}
-                </div>
-              </div>
-
-              {claimConditions.data?.length === 0 ||
+            {claimConditions.data?.length === 0 ||
               claimConditions.data?.every(
                 (cc) => cc.maxClaimableSupply === "0"
               ) ? (
@@ -264,7 +242,6 @@ const Home: NextPage = () => {
                 </div>
               ) : (
                 <>
-                  <p>Quantity</p>
                   <div className={styles.quantityContainer}>
                     <button
                       className={`${styles.quantityControlButton}`}
@@ -285,7 +262,10 @@ const Home: NextPage = () => {
                     </button>
                   </div>
 
-                  <div className={styles.mintContainer}>
+                  
+                </>
+              )}
+            <div className={styles.mintContainer}>
                     {isSoldOut ? (
                       <div>
                         <h2>Sold Out</h2>
@@ -308,19 +288,37 @@ const Home: NextPage = () => {
                       </Web3Button>
                     )}
                   </div>
-                </>
-              )}
+            </div>
+            <div className={styles.imageSide}>
+              {/* Image Preview of NFTs */}
+              <img
+                className={styles.image}
+                src="./connectpageart.png"
+                alt={`${contractMetadata?.name} preview image`}
+              />
+
+              {/* Amount claimed so far */}
+              <div className={styles.mintCompletionArea}>
+                <div className={styles.mintAreaLeft}>
+                  <p>Total Minted</p>
+                </div>
+                <div className={styles.mintAreaRight}>
+                  {claimedSupply && unclaimedSupply ? (
+                    <p>
+                      <b>{numberClaimed}</b>
+                      {" / "}
+                      {numberTotal}
+                    </p>
+                  ) : (
+                    // Show loading state if we're still loading the supply
+                    <p>Loading...</p>
+                  )}
+                </div>
+              </div>
             </div>
           </>
         )}
       </div>
-      {/* Powered by thirdweb */}{" "}
-      <img
-        src="/logo.png"
-        alt="thirdweb Logo"
-        width={135}
-        className={styles.buttonGapTop}
-      />
     </div>
   );
 };
