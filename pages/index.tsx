@@ -15,8 +15,6 @@ import type { NextPage } from "next";
 import { useMemo, useState } from "react";
 import styles from "../styles/Theme.module.css";
 import { parseIneligibility } from "../utils/parseIneligibility";
-import connectpageart from "../assests/connectpageart.png";
-import oceanlogo from "../assests/oceancatslogo.png";
 
 // Put Your NFT Drop Contract address from the dashboard here
 const myNftDropContractAddress = "0x8Ddf0ABb207B533EbD1BcC7b0eDa589184f881a7";
